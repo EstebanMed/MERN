@@ -2,11 +2,11 @@
   "name": "mern-back",
   "version": "1.0.0",
   "description": "\"Back end app\"",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "build": "tsc",
-    "start": "ts-node-dev src/index.ts",
-    "start js dev": "node build/index.js",
+    "start": "ts-node-dev src/app.ts",
+    "start js dev": "node build/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -31,6 +31,8 @@
     "typescript": "^4.6.4"
   },
   "dependencies": {
-    "express": "4.18.1"
+    "dotenv": "16.0.1",
+    "express": "4.18.1",
+    "express-promise-router": "4.1.1"
   }
 }
