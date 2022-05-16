@@ -1,7 +1,8 @@
+import { squadType } from '../types/squad.type';
 import { TeamInterface } from '../interfaces/team.interface';
 
-export default class TeamService implements TeamInterface {
-  add(team: any): void {
+export default class FootballService implements TeamInterface {
+  add(team: squadType): void {
     console.log(team);
   }
 

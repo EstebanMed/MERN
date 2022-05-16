@@ -1,4 +1,6 @@
+import FootballService from '../services/football.service';
+
 export default {
-  FOOTBALL: 'football',
-  BASKETBALL: 'basketball',
+  FOOTBALL: new FootballService(),
+  // BASKETBALL: 'basketball',
 };
