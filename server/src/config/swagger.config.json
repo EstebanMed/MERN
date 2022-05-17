@@ -1,0 +1,51 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Sample API",
+        "description": "API description in Markdown.",
+        "version": "1.0.0"
+    },
+    "basePath": "/v1",
+    "definitions": {
+        "team": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "Team's name"
+                },
+                "sport": {
+                    "type": "string",
+                    "description": "Sport's name. Please use 'football",
+                    "default": "football"
+                }
+            }
+        }
+    },
+    "paths": {
+        "/team": {
+            "post": {
+                "summary": "",
+                "description": "Creates a new team.",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/team"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        }
+    }
+}
