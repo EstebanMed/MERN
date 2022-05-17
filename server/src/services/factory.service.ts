@@ -1,9 +1,10 @@
-// import sportsConstant from 'constants/sports.constant';
-// import { TeamInterface } from 'interfaces/team.interface';
+import { TeamInterface } from '../services/interfaces/team.interface';
+import sportsConstant from '../constants/sports.constant';
 
-// class SportsFactory {
-//   create(sport: string):TeamInterface {
-//     const ffi = sportsConstant[sport as keyof TeamInterface];
-//     return ffi;
-//   }
-// }
+class SportsFactory {
+  static create(sport: string):TeamInterface {
+    return sportsConstant[sport];
+  }
+}
+
+export default SportsFactory;

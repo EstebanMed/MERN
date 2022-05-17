@@ -1,9 +1,16 @@
-import { squadType } from '../types/squad.type';
-import { TeamInterface } from '../interfaces/team.interface';
+import TeamRepository from '../repositories/team.repository';
+import { SquadType } from '../types/squad.type';
+import { TeamInterface } from './interfaces/team.interface';
 
 export default class FootballService implements TeamInterface {
-  add(team: squadType): void {
-    console.log(team);
+  private teamRepository: TeamRepository;
+
+  constructor() {
+    this.teamRepository = new TeamRepository();
+  }
+
+  add(team: SquadType): void {
+    this.teamRepository.create(team);
   }
 
   // update(team: SportTypes): void {

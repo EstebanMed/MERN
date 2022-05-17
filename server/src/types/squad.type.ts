@@ -1,4 +1,4 @@
-export type squadType = {
+export type SquadType = {
     name: string,
     sport: string
 }

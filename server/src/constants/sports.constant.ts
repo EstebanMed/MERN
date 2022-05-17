@@ -1,6 +1,8 @@
+import { TeamInterface } from 'services/interfaces/team.interface';
 import FootballService from '../services/football.service';
 
-export default {
-  FOOTBALL: new FootballService(),
-  // BASKETBALL: 'basketball',
+const sportInstances: Record<string, TeamInterface> = {
+  football: new FootballService(),
 };
+
+export default sportInstances;
