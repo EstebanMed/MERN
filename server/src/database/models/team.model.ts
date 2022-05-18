@@ -1,5 +1,7 @@
-import { model } from 'mongoose';
-import teamSchema from '../schemas/team.schema';
+import { model, Schema } from 'mongoose';
 
-const getModel = (sport: string) => model(sport, teamSchema);
+const getModel = (sport: string) => model(sport, new Schema({
+  sport: String,
+  name: String,
+}));
 export default getModel;

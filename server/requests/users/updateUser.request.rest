@@ -1,0 +1,6 @@
+PUT http://localhost:3000/v1/user/esteban HTTP/1.1
+Content-Type: application/json
+
+{
+    "password": "pass-updated"
+}
