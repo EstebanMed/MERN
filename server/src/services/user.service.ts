@@ -20,7 +20,7 @@ export default class UserService {
     this.userRepository.delete(username);
   }
 
-  async getById(username: string): Promise<any> {
+  async getById(username: string): Promise<UserType|null> {
     const result = await this.userRepository.getById(username);
     return result;
   }

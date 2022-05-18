@@ -1,5 +1,5 @@
 import { check } from 'express-validator';
-import { Request, Response } from 'express';
+import { NextFunction, Request, Response } from 'express';
 import validateResult from '../helpers/validate.helper';
 
 const validateUser = [
@@ -11,7 +11,7 @@ const validateUser = [
     .exists()
     .not()
     .isEmpty(),
-  (req: Request, res: Response, next: any) => {
+  (req: Request, res: Response, next: NextFunction) => {
     validateResult(req, res, next);
   },
 ];

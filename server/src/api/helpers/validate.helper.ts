@@ -1,13 +1,12 @@
 import { validationResult } from 'express-validator';
-import { Response } from 'express';
+import { Request, Response, NextFunction} from 'express';
 
-const validateResult = (req: any, res: Response, next: any) => {
-  // TODO: Search about next instance type to avoid any
+const validateResult = (req: Request, res: Response, next: NextFunction) => {
   try {
     validationResult(req).throw();
     return next();
-  } catch (err: any) {
-    // TODO: Search about err instance type to avoid any
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  } catch (err:any) {
     res.status(403);
     res.send({ errors: err.array() });
   }

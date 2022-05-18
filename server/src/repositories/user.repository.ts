@@ -4,6 +4,7 @@ import { Repository } from './interfaces/repository.interface';
 import userModel from '../database/models/user.model';
 
 export default class UserRepository implements Repository<UserType> {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   private model:Model<any>;
 
   constructor() {
@@ -22,8 +23,8 @@ export default class UserRepository implements Repository<UserType> {
     await this.model.deleteOne({ username });
   }
 
-  async getById(username: string): Promise<any> {
-    const result:any = await this.model.findOne({ username }).exec();
+  async getById(username: string): Promise<UserType|null> {
+    const result = await this.model.findOne<UserType>({ username }).exec();
     return result;
   }
 }
