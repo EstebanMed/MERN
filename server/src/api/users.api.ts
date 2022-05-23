@@ -2,14 +2,19 @@ import { Router, Response, Request } from 'express';
 import PromiseRouter from 'express-promise-router';
 import { UserType } from 'types/user.type';
 import UserService from '../services/user.service';
+import { encript } from './helpers/bcrypt.helper';
 import validateUser from './validators/user.validator';
 
 const route = PromiseRouter();
 export default (app: Router):void => {
   app.use('/v1', route);
   route.post('/user', validateUser, async (req: Request, response: Response) => {
+    const { password } = req.body;
+    const hash = await encript(password);
     const service = new UserService();
-    service.add(req.body as UserType);
+    const userWithHash:UserType = {...req.body, password: hash};
+    
+    service.add(userWithHash);
 
     response.send(200);
   });
@@ -35,7 +40,6 @@ export default (app: Router):void => {
     const service = new UserService();
     const { username } = req.params;
     const result = await service.getById(username as string);
-
     response.send(result);
   });
 };
