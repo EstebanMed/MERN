@@ -4,6 +4,7 @@ import { UserType } from 'types/user.type';
 import UserService from '../services/user.service';
 import { encript } from './helpers/bcrypt.helper';
 import validateUser from './validators/user.validator';
+import auth from './middlewares/auth.middleware';
 
 const route = PromiseRouter();
 export default (app: Router):void => {
@@ -23,7 +24,8 @@ export default (app: Router):void => {
     const service = new UserService();
     const { username } = req.params;
     const { password } = req.body;
-    service.update({ username, password } as UserType);
+    const hash = await encript(password);
+    service.update({ username, password: hash } as UserType);
 
     response.send(200);
   });
@@ -36,7 +38,7 @@ export default (app: Router):void => {
     response.send(200);
   });
 
-  route.get('/user/:username', async (req: Request, response: Response) => {
+  route.get('/user/:username', auth,  async (req: Request, response: Response) => {
     const service = new UserService();
     const { username } = req.params;
     const result = await service.getById(username as string);

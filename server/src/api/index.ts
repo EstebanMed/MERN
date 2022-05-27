@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import Teams from './teams.api';
 import Users from './users.api';
+import Login from './login.api';
 import Swagger from './swagger.api';
 
 export default ():Router => {
@@ -9,5 +10,6 @@ export default ():Router => {
   Swagger(router);
   Teams(router);
   Users(router);
+  Login(router);
   return router;
 };
