@@ -10,7 +10,7 @@ export default (req:Request, res:Response, next: NextFunction) => {
         console.log('from auth middleware');
         const [, token]:string[] = array;
         console.log(token);
-        const publicKey = fs.readFileSync("C:/Dev/MERN/server/src/config/auth/auth.public-key")
+        const publicKey = fs.readFileSync("C:/Dev/MERN/server/src/config/auth/auth.public-key")//TODO: Set relative path
         const payLoad = jwt.verify(token, publicKey, { algorithms: ['RS256'] });
         console.log(payLoad);
         //TODO: Add try catch
