@@ -1,4 +1,7 @@
 version: '1'
+networks: 
+  connection: 
+    driver: bridge
 services:
     mongodb:
       image: 'mongo:latest'
@@ -8,3 +11,19 @@ services:
       environment:
         - 'MONGO_INITDB_ROOT_USERNAME:root'
         - 'MONGO_INITDB_ROOT_PASSWORD:example'
+      networks: 
+        - connection
+    api:
+      environment:
+        - PORT=3001
+        - DB_PORT=27017
+        - DB_HOSTNAME=mongodb://mongodb
+        - DB_NAME=TEAMS
+      build: 
+        context: "./server"
+      ports: 
+        - 3001:3001
+      depends_on: 
+        - mongodb
+      networks: 
+        - connection
