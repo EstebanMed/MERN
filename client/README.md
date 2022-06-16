@@ -1,4 +1,6 @@
 # Installing Vite
 npm create vite@latest teby -- --template react
 # Installing SCSS Pre-Processor
-npm add -D scss
+npm i @emotion/css -E
+# Favicon generator
+Favicon generated in https://www.ionos.com/tools/favicon-generator
