@@ -1,3 +1,4 @@
+// Source: https://coolors.co/palettes/trending
 const primary = '#22223b';
 const theme = {
     body: {
