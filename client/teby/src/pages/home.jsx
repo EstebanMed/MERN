@@ -1,8 +1,8 @@
-import Button from '../components/generics/button/button.style';
+import Button from '../components/generics/button/button';
 function Home({changeTheme}) {
     return (
         <div>
-          <Button>But</Button>
+          <Button label="Holi">But</Button>
           <button onClick={changeTheme}>Change theme</button>
         </div>
     )

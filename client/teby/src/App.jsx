@@ -1,5 +1,4 @@
 import {useState, useCallback} from 'react';
-import Button from './components/generics/button/button.style';
 import Home from './pages/home';
 import {ThemeProvider} from '@emotion/react';
 import smoothTheme from './themes/smooth.theme';
@@ -15,7 +14,6 @@ function App() {
                 currentTheme ? darkTheme : smoothTheme
             }>
                 <Home changeTheme={changeTheme}></Home>
-                <Button>But</Button>
             </ThemeProvider>
         </div>
     )
